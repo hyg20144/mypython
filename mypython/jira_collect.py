@@ -14,7 +14,7 @@ def fun_get_url(PROJECT,TYPE,YEAR,MONTH):
     MONTH = int(MONTH)
     S_DATE = FORMAT %(YEAR,MONTH,1)
     E_DATE = FORMAT %(YEAR,MONTH,cal.monthrange(YEAR,MONTH)[1])
-    API_URL = 'https://jira1.srv.volvo.com:8443/rest/api/2/search?maxResults=9999&jql='
+    API_URL = 'https://jira1.sr'
     JQL = 'project in (%s)  AND issuetype in (%s)  AND status=Closed AND resolutiondate>=%s and resolutiondate<=%s ORDER BY Rank ASC' %(PROJECT,TYPE,S_DATE,E_DATE)
     URL = API_URL + JQL
     return URL
@@ -47,8 +47,8 @@ import requests
 
 def fun_get_jira_data(FULL_URL):
     FULL_URL = fun_get_url(options.PROJECT,options.TYPE,options.YEAR,options.MONTH)
-    USERNAME = 'james.huang'
-    PASSWD = 'happydays'
+    USERNAME = 'ja'
+    PASSWD = 'h'
     requests.packages.urllib3.disable_warnings()
     try:
         response=requests.get(FULL_URL,verify=False, auth=(USERNAME, PASSWD))
